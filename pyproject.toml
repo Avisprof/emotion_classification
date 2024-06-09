@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "emotion-classification"
+version = "0.1.0"
+description = "Example The ML service is a web application that provides an API for interacting with a machine learning model. It allows users to send queries with prediction data and get results back."
+authors = ["Avisprof <113010145+Avisprof@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.111.0"
+uvicorn = "^0.30.1"
+loguru = "^0.7.2"
+transformers = "^4.41.2"
+torch = "^2.3.1"
+streamlit = "^1.35.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

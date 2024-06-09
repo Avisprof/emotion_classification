@@ -1,0 +1,25 @@
+services:
+  fastapi_app:
+    build:
+      context: .
+      dockerfile: workflow/fastapi.dockerfile
+    ports:
+      - 8000:8000
+    networks:
+      - app-network
+
+  streamlit_app:
+    build:
+      context: .
+      dockerfile: workflow/streamlit.dockerfile
+    ports:
+      - 8501:8501
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+
+  
