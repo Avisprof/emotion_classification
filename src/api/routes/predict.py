@@ -1,4 +1,6 @@
 from fastapi import APIRouter, BackgroundTasks
+from loguru import logger
+
 from src.schemas.requests import TextRequest
 from src.services.model import EmotionClassifier
 from src.services.utils import print_logger_info
@@ -16,15 +18,14 @@ async def predict_emotion(text_request: TextRequest, background_tasks: Backgroun
     Returns:
         dict: Результат предсказания в формате словаря.
     """
-    print_logger_info(text_request.text)
-    print(text_request.text)
-
+    logger.info(f"input: {text_request.text}")
     result = EmotionClassifier.predict_emotion(text_request.text)
-
+    logger.info(f"result: {result}")
+    
     background_tasks.add_task(
         print_logger_info,
         text_request.text,
         result
-    )
+    )  
 
     return result
